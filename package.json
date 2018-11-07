@@ -1,0 +1,19 @@
+{
+  "name": "eac-counter",
+  "version": "0.0.1",
+  "description": "Shows how much ETH has been transferred using the Ethereum Alarm Clock Protocol",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chronologic/eac-counter.git"
+  },
+  "author": "Joseph Bagaric (github.com/Bagaric)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chronologic/eac-counter/issues"
+  },
+  "homepage": "https://github.com/chronologic/eac-counter#readme"
+}
