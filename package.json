@@ -6,6 +6,7 @@
   "scripts": {
     "test": "node index.js",
     "build": "./node_modules/.bin/babel src --out-dir dist",
+    "build:browser": "npm run build && ./node_modules/.bin/browserify dist/EacCounter.js --standalone EacCounter > dist/eac-counter.browser.js",
     "prepack": "npm run build"
   },
   "repository": {
@@ -22,7 +23,8 @@
     "@babel/cli": "^7.1.5",
     "@babel/core": "^7.1.5",
     "@babel/plugin-transform-runtime": "^7.1.0",
-    "@babel/preset-env": "^7.1.5"
+    "@babel/preset-env": "^7.1.5",
+    "browserify": "^16.2.3"
   },
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
