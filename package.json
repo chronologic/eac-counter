@@ -1,6 +1,6 @@
 {
   "name": "eac-counter",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Shows how much ETH has been transferred using the Ethereum Alarm Clock Protocol",
   "main": "index.js",
   "scripts": {
