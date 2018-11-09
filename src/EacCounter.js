@@ -1,6 +1,6 @@
 class EacCounter {
   static async getTotalEthTransferred() {
-    const baseUrl = `http://api.etherscan.io/api?module=account&action=txlist&startblock=0&endblock=99999999&sort=asc`;
+    const baseUrl = `https://api.etherscan.io/api?module=account&action=txlist&startblock=0&endblock=99999999&sort=asc`;
     const timestampSchedulerUrl = `${baseUrl}&address=0x09e0c54ed4cffca45d691d5eb7b976d650f5904c`;
     const blockSchedulerUrl = `${baseUrl}&address=0x56efae8a6d07fb29c24e67d76f3eccac180cf527`;
 
