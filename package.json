@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
-    "@babel/runtime": "^7.1.5"
+    "@babel/runtime": "^7.1.5",
+    "moment": "^2.23.0"
   }
 }
