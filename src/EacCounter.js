@@ -40,7 +40,7 @@ class EacCounter {
     return parseFloat(timePeriod.rate) * parseFloat(ethAmount);
   }
 
-  async getTotalEthTransferred() {
+  async getTotalTransferred() {
     let totalEthTransferred = null;
     let totalUsdTransferred = null;
 
