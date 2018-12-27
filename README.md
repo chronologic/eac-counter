@@ -4,7 +4,7 @@
 
 # EAC Counter
 
-A library that fetches the amount of ETH transferred using the Ethereum Alarm Clock.
+A library that fetches the amount of ETH (and USD) transferred using the Ethereum Alarm Clock.
 
 ## Installation
 

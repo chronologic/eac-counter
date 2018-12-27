@@ -129,9 +129,9 @@ function () {
       return parseFloat(timePeriod.rate) * parseFloat(ethAmount);
     }
   }, {
-    key: "getTotalEthTransferred",
+    key: "getTotalTransferred",
     value: function () {
-      var _getTotalEthTransferred = (0, _asyncToGenerator2.default)(
+      var _getTotalTransferred = (0, _asyncToGenerator2.default)(
       /*#__PURE__*/
       _regenerator.default.mark(function _callee4() {
         var _this = this;
@@ -238,8 +238,8 @@ function () {
         }, _callee4, this, [[8, 16]]);
       }));
 
-      return function getTotalEthTransferred() {
-        return _getTotalEthTransferred.apply(this, arguments);
+      return function getTotalTransferred() {
+        return _getTotalTransferred.apply(this, arguments);
       };
     }()
   }]);
