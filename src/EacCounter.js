@@ -15,10 +15,14 @@ class EacCounter {
 
     const url = `https://api.nomics.com/v1/exchange-rates/history?key=${apiKey}&currency=ETH&start=${startDate.toISOString()}`;
 
-    const ethToUsdAtTimestampValues = await fetch(url).then(async (resp) => {
-      const response = await resp.json();
-      return response;
-    });
+    let ethToUsdAtTimestampValues;
+
+    try {
+      ethToUsdAtTimestampValues = await fetch(url).then(async (resp) => await resp.json());
+    } catch (e) {
+      console.log('Unable to fetch the amount of transferred USD.');
+      return;
+    }
 
     this.ethToUsdAtTimestampValues = ethToUsdAtTimestampValues;
     this._canFetchUSD = true;
