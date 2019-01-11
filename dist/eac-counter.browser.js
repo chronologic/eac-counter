@@ -63,14 +63,14 @@ function () {
                 startDate = moment.unix(1535068800); // Unix timestamp for August 24 2018 (contract creation)
 
                 url = "https://api.nomics.com/v1/exchange-rates/history?key=".concat(apiKey, "&currency=ETH&start=").concat(startDate.toISOString());
-                _context2.next = 4;
+                _context2.prev = 2;
+                _context2.next = 5;
                 return fetch(url).then(
                 /*#__PURE__*/
                 function () {
                   var _ref = (0, _asyncToGenerator2.default)(
                   /*#__PURE__*/
                   _regenerator.default.mark(function _callee(resp) {
-                    var response;
                     return _regenerator.default.wrap(function _callee$(_context) {
                       while (1) {
                         switch (_context.prev = _context.next) {
@@ -79,10 +79,9 @@ function () {
                             return resp.json();
 
                           case 2:
-                            response = _context.sent;
-                            return _context.abrupt("return", response);
+                            return _context.abrupt("return", _context.sent);
 
-                          case 4:
+                          case 3:
                           case "end":
                             return _context.stop();
                         }
@@ -95,17 +94,27 @@ function () {
                   };
                 }());
 
-              case 4:
+              case 5:
                 ethToUsdAtTimestampValues = _context2.sent;
+                _context2.next = 12;
+                break;
+
+              case 8:
+                _context2.prev = 8;
+                _context2.t0 = _context2["catch"](2);
+                console.log('Unable to fetch the amount of transferred USD.');
+                return _context2.abrupt("return");
+
+              case 12:
                 this.ethToUsdAtTimestampValues = ethToUsdAtTimestampValues;
                 this._canFetchUSD = true;
 
-              case 7:
+              case 14:
               case "end":
                 return _context2.stop();
             }
           }
-        }, _callee2, this);
+        }, _callee2, this, [[2, 8]]);
       }));
 
       return function enableUSDFetching(_x) {
