@@ -14,11 +14,15 @@ A library that fetches the amount of ETH (and USD) transferred using the Ethereu
 
 ```js
 import EacCounter from 'eac-counter';
-const eacCounter = new EacCounter();
+const eacCounter = new EacCounter({
+  // Needed for fetching amount of USD transferred, get an API key from https://nomics.com/
+  nomicsApiKey: '<nomics_api_key>',
+  // Needed for fetching amount of ETH transferred, get an API key from https://etherscan.io/
+  etherscanApiKey: '<etherscan_api_key>',
+});
 
 // Optional: Needed to fetch the amount of USD transferred
-// To use this, first get an API key from https://nomics.com/
-await eacCounter.enableUSDFetching('<nomics_api_key>');
+await eacCounter.enableUSDFetching();
 
 const { eth, usd } = await eacCounter.getTotalTransferred();
 console.log(eth);
@@ -36,11 +40,14 @@ To use this library in the browser, download and import the [browser-compatible 
 This will expose the `EacCounter` to the window object. You can then use the following code to fetch the counter:
 
 ```js
-const eacCounter = new EacCounter();	
-eacCounter.enableUSDFetching('<nomics_api_key>').then(function () {
+const eacCounter = new EacCounter({
+  nomicsApiKey: '<nomics_api_key>',
+  etherscanApiKey: '<etherscan_api_key>',
+});
+eacCounter.enableUSDFetching().then(function () {
   eacCounter.getTotalTransferred().then(function (value) {
-    console.log(value.eth)
-    console.log(value.usd)
+    console.log(value.eth);
+    console.log(value.usd);
   });
 });
 ```

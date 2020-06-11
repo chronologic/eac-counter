@@ -4,13 +4,13 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 
 require("core-js/modules/es6.promise");
 
-require("core-js/modules/web.dom.iterable");
-
 require("core-js/modules/es6.array.iterator");
 
 require("core-js/modules/es6.string.iterator");
 
 require("core-js/modules/es6.array.reduce");
+
+require("core-js/modules/web.dom.iterable");
 
 require("core-js/modules/es6.array.for-each");
 
@@ -38,14 +38,20 @@ var EacCounter =
 /*#__PURE__*/
 function () {
   function EacCounter() {
+    var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
+        nomicsApiKey = _ref.nomicsApiKey,
+        etherscanApiKey = _ref.etherscanApiKey;
+
     (0, _classCallCheck2.default)(this, EacCounter);
     this.ethToUsdAtTimestampValues = null;
     this._canFetchUSD = false;
+    this._nomicsApiKey = nomicsApiKey;
+    this._etherscanApiKey = etherscanApiKey;
   }
   /**
-    * Enables the API for fetching USD values from the Nomics API.
-    * @param {string} apiKey Nomics API key that will be used for fetching (required).
-    */
+   * Enables the API for fetching USD values from the Nomics API.
+   * @param {string} apiKey Nomics API key that will be used for fetching (required).
+   */
 
 
   (0, _createClass2.default)(EacCounter, [{
@@ -61,13 +67,13 @@ function () {
               case 0:
                 startDate = moment.unix(1535068800); // Unix timestamp for August 24 2018 (contract creation)
 
-                url = "https://api.nomics.com/v1/exchange-rates/history?key=".concat(apiKey, "&currency=ETH&start=").concat(startDate.toISOString());
+                url = "https://api.nomics.com/v1/exchange-rates/history?key=".concat(apiKey || this._nomicsApiKey, "&currency=ETH&start=").concat(startDate.toISOString());
                 _context2.prev = 2;
                 _context2.next = 5;
                 return fetch(url).then(
                 /*#__PURE__*/
                 function () {
-                  var _ref = (0, _asyncToGenerator2.default)(
+                  var _ref2 = (0, _asyncToGenerator2.default)(
                   /*#__PURE__*/
                   _regenerator.default.mark(function _callee(resp) {
                     return _regenerator.default.wrap(function _callee$(_context) {
@@ -89,7 +95,7 @@ function () {
                   }));
 
                   return function (_x2) {
-                    return _ref.apply(this, arguments);
+                    return _ref2.apply(this, arguments);
                   };
                 }());
 
@@ -152,7 +158,7 @@ function () {
               case 0:
                 totalEthTransferred = null;
                 totalUsdTransferred = null;
-                baseUrl = "https://api.etherscan.io/api?module=account&action=txlist&startblock=0&endblock=99999999&sort=asc";
+                baseUrl = "https://api.etherscan.io/api?module=account&action=txlist&startblock=0&endblock=99999999&sort=asc&apiKey=".concat(this._etherscanApiKey);
                 timestampSchedulerUrl = "".concat(baseUrl, "&address=0x09e0c54ed4cffca45d691d5eb7b976d650f5904c");
                 blockSchedulerUrl = "".concat(baseUrl, "&address=0x56efae8a6d07fb29c24e67d76f3eccac180cf527");
                 urls = [timestampSchedulerUrl, blockSchedulerUrl];
@@ -161,7 +167,7 @@ function () {
                   var resultPromise = fetch(url).then(
                   /*#__PURE__*/
                   function () {
-                    var _ref2 = (0, _asyncToGenerator2.default)(
+                    var _ref3 = (0, _asyncToGenerator2.default)(
                     /*#__PURE__*/
                     _regenerator.default.mark(function _callee3(resp) {
                       var response, weiTransferred, usdTransferred;
@@ -203,7 +209,7 @@ function () {
                     }));
 
                     return function (_x3) {
-                      return _ref2.apply(this, arguments);
+                      return _ref3.apply(this, arguments);
                     };
                   }());
                   promises.push(resultPromise);
